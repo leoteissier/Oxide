@@ -17,16 +17,16 @@ Pour commencer avec Terminal Rustique, assurez-vous d'avoir Rust et Cargo instal
 
 Clonez ce dépôt:
 ```bash
-git clone https://github.com/votre-username/terminal-rustique.git
+git clone https://github.com/leoteissier/Oxide.git
 ```
 Construisez le projet:
 ```bash
-cd terminal-
+cd Oxide
 cargo build --release
 ```
 Lancez le terminal:
 ```bash
-./target/release/terminal-rustique
+./target/release/Oxide
 ```
 
 Consultez le fichier README.md pour plus d'instructions sur l'installation, la configuration, et l'utilisation.
