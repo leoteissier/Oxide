@@ -2,9 +2,9 @@ name: Rust
 
 on:
   push:
-    branches: [ "master" ]
+    branches: [ "master", "develops" ]
   pull_request:
-    branches: [ "master" ]
+    branches: [ "master", "develops" ]
 
 env:
   CARGO_TERM_COLOR: always
@@ -16,7 +16,17 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
+
+    - name: Setup dependencies
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y libpango1.0-dev
+
+    - name: Set environment for pkg-config
+      run: echo "PKG_CONFIG_PATH=$PKG_CONFIG_PATH:/usr/lib/pkgconfig:/usr/share/pkgconfig" >> $GITHUB_ENV
+
     - name: Build
       run: cargo build --verbose
+
     - name: Run tests
       run: cargo test --verbose
